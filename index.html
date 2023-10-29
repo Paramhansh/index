@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        // JavaScript to toggle the dropdown content
+        function toggleDropdown(dropdownNumber) {
+            var dropdown = document.getElementById("myDropdown" + dropdownNumber);
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropdown-button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var dropdown = dropdowns[i];
+                    if (dropdown.style.display === "block") {
+                        dropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+<style>
+     /* Reset some default styles */
+ body,
+ h1,
+ h2,
+ p {
+     margin: 0;
+     padding: 0;
+ }
+
+ /* Logo styles */
+ .logo {
+     float: left;
+     margin-right: 20px;
+ }
+
+ .logo img {
+     max-width: 68px;
+     /* Adjust the size as needed */
+     height: 68px;
+ }
+
+ /* Basic styling for the header and navigation */
+ header {
+     background-color: #333;
+     color: #fff;
+     padding: 5px;
+ }
+
+ .navbar {
+     display: flex;
+     top: 0;
+     color: black;
+
+ }
+
+
+ nav ul {
+     margin: 5px;
+     list-style: none;
+     text-align: center;
+ }
+
+ nav ul li {
+     display: inline;
+     margin: 0 20px;
+ }
+
+ .navbar ul li a {
+     text-decoration: none;
+     color: #fff;
+     padding: 2px;
+     border: 1px solid #333;
+ }
+
+ .navbar ul li a:hover {
+     text-decoration: none;
+     color: #fff;
+     padding: 2px;
+     border: 1px solid wheat;
+ }
+
+ .vertical {
+     border-left: 3px solid #e9e3e3;
+     height: 50px;
+     position: absolute;
+     left: 30%;
+ }
+
+ /* Style for the breadcrumb container */
+ .breadcrumb {
+     background-color: #cecdcd;
+     padding: 10px;
+ }
+
+ /* Style for individual breadcrumb items */
+ .breadcrumb-item {
+     display: inline;
+     margin-right: 10px;
+ }
+
+ /* Search section styles */
+ #search {
+     text-align: center;
+     padding: 50px;
+ }
+
+ #search h2 {
+     font-size: 24px;
+     color: #333;
+     margin-bottom: 20px;
+ }
+
+ /* Search form styles */
+ .search-form {
+     display: flex;
+     max-width: 400px;
+     margin: 0 auto;
+     border: 2px solid #ddd;
+     border-radius: 25px;
+     overflow: hidden;
+ }
+
+ .search-input {
+     flex: 1;
+     border: none;
+     padding: 10px;
+     border-radius: 25px;
+ }
+
+ /* Updated styles for the search button */
+ .search-button {
+     background-color: #333;
+     color: #fff;
+     border: none;
+     border-radius: 0 25px 25px 0;
+     cursor: pointer;
+     padding: 10px 20px;
+     /* Adjust the padding for the button */
+     font-size: 16px;
+     /* Adjust the font size */
+     transition: background-color 0.3s;
+     /* Add a transition effect */
+
+     /* Add a hover effect */
+     &:hover {
+         background-color: #555;
+     }
+ }
+
+ /* Style the search icon */
+ .fa-search {
+     font-size: 20px;
+ }
+
+
+ .resister {
+    background-image: url(https://source.unsplash.com/1500x800/?white,plane,books);
+     font-family: Arial, sans-serif;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     margin: 10px;
+ }
+
+ .resister_new_account {
+     max-width: 50%;
+     padding: 20px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     background-color: #f9f9f9;
+ }
+
+ h1 {
+     text-align: center;
+ }
+
+ .social-login {
+     text-align: center;
+ }
+
+ .social-login button {
+     margin: 5px;
+     padding: 10px 20px;
+     background-color: #3a3c3f;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+
+ .input-container {
+     margin: 10px 0;
+ }
+
+ .input-container input {
+     width: 100%;
+     padding: 10px;
+     margin: 5px 0;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+ }
+
+ .checkbox-container {
+     text-align: center;
+     margin: 20px 0;
+ }
+
+ .checkbox-container input[type="checkbox"] {
+     display: none;
+ }
+
+ .checkbox-label {
+     position: relative;
+     padding-left: 35px;
+     margin: 0;
+     cursor: pointer;
+ }
+
+ .custom-checkbox {
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 25px;
+     width: 25px;
+     background-color: #fff;
+     border: 1px solid #ccc;
+     border-radius: 3px;
+ }
+
+ .custom-checkbox::after {
+     content: "";
+     position: absolute;
+     display: none;
+     left: 8px;
+     top: 5px;
+     width: 6px;
+     height: 12px;
+     border: solid green;
+     border-width: 0 2px 2px 0;
+     transform: rotate(45deg);
+ }
+
+ .checkbox-container input[type="checkbox"]:checked~.custom-checkbox::after {
+     display: block;
+ }
+
+ .signup-button {
+     background-color: #4b2df2;
+     color: white;
+     text-align: center;
+     margin: 10px 90px;
+     padding: 10px 20px;
+     border: 2px solid rgb(116, 6, 251);
+     border-radius: 5px;
+     cursor: pointer;
+ }
+
+ .signup-button:hover {
+     border: 2px solid rgb(217, 181, 252);
+
+ }
+
+ .login-link {
+     text-align: center;
+     margin-top: 10px;
+ }
+
+ .login-link p a {
+     text-decoration: none;
+     color: red;
+     padding: 2px;
+     border: 2px solid white;
+
+ }
+
+ .login-link p a:hover {
+     border: 2px solid wheat;
+
+ }
+
+ /* Style for the pricing section */
+ .pricing {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-color: #f2f2f2;
+     padding: 20px;margin-top: 50px;
+ }
+
+ /* Style for individual pricing options */
+ .pricing-option {
+     border: 1px solid #ccc;
+     padding: 20px;
+     margin: 10px;
+     text-align: center;
+ }
+
+ /* Highlighted pricing option */
+ .highlighted {
+     background-color: #ffd700;
+     /* Yellow background for highlighting */
+     border: 1px solid #ffbf00;
+     /* Slightly darker border color */
+ }
+
+ /* Hero section styles */
+ .mid_hero {
+     background-image: url('https://source.unsplash.com/1500x500/?white,plane');
+     background-size: cover;
+     text-align: center;
+     padding: 100px;
+     color: #fff;
+ }
+
+.mid_hero h1 {
+    text-align: center;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+ .mid_hero p{
+    color: black;
+    margin: 30px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   
+ }
+.mid_hero a{
+    color: white;
+    text-decoration: none;
+ }
+
+ .btn_contact_submit {
+     background-color: #333;
+     color: #fff;
+     padding: 10px 20px;
+     text-decoration: none;
+ }
+
+ /* Other section styles */
+ section {
+     padding: 50px;
+ }
+
+ /* Footer styles */
+ footer {
+     background-color: #333;
+     color: #fff;
+     text-align: center;
+     padding: 10px;
+ }
+
+ /* */
+
+
+ /* Unique section styles */
+ #unique-section {
+    background-image: url(https://source.unsplash.com/1500x500/?white,background,travell);
+     background-color: #f9f9f9;
+     text-align: center;
+     padding: 50px 0;
+ }
+
+ #unique-section .container {
+     display: flex;
+     justify-content: space-between;
+     flex-wrap: wrap;
+ }
+
+ #unique-section h2 {
+     font-size: 30px;
+     color: #333;
+     margin-bottom: 30px;
+     width: 100%;
+ }
+
+ .feature {
+     flex: 0 0 calc(33.33% - 20px);
+     margin: 10px;
+     text-align: left;
+     background-color: #fff;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     border-radius: 10px;
+ }
+
+ .feature-image {
+     padding: 20px;
+     text-align: center;
+ }
+
+ .feature-image img {
+     max-width: 100%;
+     height: auto;
+ }
+
+ .feature-details {
+     padding: 20px;
+ }
+
+ .feature h3 {
+     font-size: 20px;
+     color: #333;
+     margin-bottom: 10px;
+ }
+
+ .feature p {
+     font-size: 16px;
+     color: #666;
+     margin-bottom: 20px;
+ }
+
+ .feature a {
+     display: inline-block;
+     background-color: #333;
+     color: #fff;
+     padding: 10px 20px;
+     text-decoration: none;
+     border-radius: 5px;
+     font-weight: bold;
+     transition: background-color 0.3s;
+ }
+
+ .feature a:hover {
+     background-color: #555;
+ }
+
+ /* Image gallery section styles */
+ #mid_image-gallery {
+     background-color: #f9f9f9;
+     text-align: center;
+     padding: 100px 0;
+ }
+
+ #mid_image-gallery h2 {
+     font-size: 30px;
+     color: #333;
+     margin-bottom: 30px;
+ }
+
+ .mid_image-grid {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+ }
+
+ .mid_image {
+     margin: 10px;
+     overflow: hidden;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     border-radius: 10px;
+ }
+
+ .mid_image img {
+     max-width: 100%;
+     height: auto;
+     transition: transform 0.3s;
+ }
+
+ .mid_image:hover img {
+     transform: scale(1.1);
+ }
+
+
+ /* Transparent section styles */
+ #transparent-section_1 {
+     background: none;
+     /* No background image */
+     text-align: center;
+     color: #050505;
+     padding: 100px 0;
+     position: relative;
+ }
+
+ #transparent-section_1 .overlay {
+     background-color: rgba(231, 227, 227, 0.7);
+     /* Transparent black overlay */
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+ }
+
+ #transparent-section_1 .container {
+     position: relative;
+     z-index: 1;
+ }
+
+ #transparent-section_1 h2 {
+     font-size: 30px;
+     margin-bottom: 20px;
+ }
+
+ #transparent-section_1 p {
+     font-size: 18px;
+     margin-bottom: 30px;
+ }
+
+ #transparent-section_1 .btn {
+     background-color: #333;
+     color: #fff;
+     padding: 10px 20px;
+     text-decoration: none;
+     border-radius: 5px;
+     font-weight: bold;
+     transition: background-color 0.3s;
+ }
+
+ #transparent-section_1 .btn:hover {
+     background-color: #555;
+ }
+
+
+ /* Style for the pricing section */
+ .pricing {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-color: #f2f2f2;
+     padding: 20px;
+ }
+
+
+ /* Transparent section styles */
+ #transparent-section_2 {
+     background-image: url('https://source.unsplash.com/450x500/?,dark,wallpaer');
+     background-size: cover;
+     text-align: center;
+     color: #fff;
+     padding: 100px 0;
+     position: relative;
+ }
+
+ #transparent-section_2 .overlay {
+     background-color: rgba(0, 0, 0, 0.5);
+     /* Transparent black overlay */
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+ }
+
+ #transparent-section_2 .container {
+     position: relative;
+     z-index: 1;
+ }
+
+ #transparent-section_2 h2 {
+     font-size: 30px;
+     margin-bottom: 20px;
+ }
+
+ #transparent-section_2 p {
+     font-size: 18px;
+     margin-bottom: 30px;
+ }
+
+ /* Style for the testimonials section */
+ .testimonials {
+     background-color: #f9f9f9;
+     padding: 40px;
+     text-align: center;
+ }
+
+ /* Style for individual testimonials */
+ .testimonial {
+     border: 1px solid #ccc;
+     padding: 20px;
+     margin: 10px;
+     text-align: center;
+ }
+
+
+
+ /* Contact Us section styles */
+ #contact {
+    background-image: url(https://source.unsplash.com/1500x500/?white,london);
+     background-color: #f2f2f2;
+     text-align: center;
+     padding: 50px;
+ }
+
+ #contact h2 {
+    font-family: ui-monospace;
+    font-weight: bolder;
+     font-size: 50px;
+     color: #333;
+     margin-bottom: 20px;
+ }
+
+ #contact p {
+     font-size: 18px;
+     color: #666;
+     margin-bottom: 30px;
+ }
+
+ #contact form {
+     max-width: 400px;
+     margin: 0 auto;
+ }
+
+ #contact form input,
+ #contact form textarea {
+     width: 100%;
+     padding: 10px;
+     margin-bottom: 15px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+ }
+
+ #contact form button {
+     background-color: #333;
+     color: #fff;
+     padding: 10px 20px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     font-weight: bold;
+     text-transform: uppercase;
+ }
+
+ /* Style for the dropdown container */
+ .dropdown {
+     position: relative;
+     display: inline-block;
+ }
+
+ /* Style for the dropdown button (trigger) */
+ .dropdown-button {
+     background-color: #333;
+     color: #fff;
+     padding: 10px 20px;
+     border: none;
+     cursor: pointer;
+ }
+
+ /* Style for the dropdown content (hidden by default) */
+ .dropdown-content {
+     display: none;
+     position: absolute;
+     background-color: #f9f9f9;
+     min-width: 160px;
+     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+     z-index: 1;
+ }
+
+ /* Style for individual dropdown items */
+ .dropdown-item {
+     padding: 12px 16px;
+     text-decoration: none;
+     display: block;
+     color: #333;
+ }
+
+ .dropdown-button:hover {
+     text-decoration: underline;
+     color: rgb(252, 244, 244);
+ }
+
+ /* Change link color on hover */
+ .dropdown-item:hover {
+     background-color: #edc3c3;
+ }
+
+ /* Show the dropdown content when hovering over the dropdown button */
+ .dropdown:hover .dropdown-content {
+     display: block;
+ }
+
+ /* Style for the dropdown container */
+ .dropdown_click {
+     display: inline-block;
+     position: relative;
+ }
+
+ /* Style for the dropdown button (trigger) */
+ .dropdown-button_click {
+     background-color: #333;
+     color: #fff;
+     padding: 10px 20px;
+     border: 1px solid gray;
+     cursor: pointer;
+ }
+
+ /* Style for the dropdown content (hidden by default) */
+ .dropdown-content_click {
+     display: none;
+     position: absolute;
+     background-color: #f9f9f9;
+     min-width: 160px;
+     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+     z-index: 1;
+ }
+
+ /* Style for individual dropdown items */
+ .dropdown-item_click {
+     padding: 12px 16px;
+     text-decoration: none;
+     display: block;
+     color: #333;
+ }
+
+ /* Style for the footer section */
+ .footer_ft {
+     background-color: #333;
+     color: #fff;
+     padding: 20px;
+     text-align: center;
+ }
+ .footer_ft a{
+            text-decoration: none;
+ }
+ /* Style for the footer links */
+ .footer-links {
+     margin: 25px 0;
+     justify-content: space-around;
+ }
+
+ .footer-links a {
+     text-decoration: none;
+     color: white;
+
+ }
+
+ /* Style for the footer logo */
+ .footer-logo {
+     font-size: 24px;
+     font-weight: bold;
+ }
+
+ /* Style for the homepage button */
+ .home-button {
+     background-color: #fff;
+     color: #333;
+     padding: 10px 20px;
+     text-decoration: none;
+     margin-top: 10px;
+     border-radius: 5px;
+ }
+</style>
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/templates/logo28.jpg" alt="Your Logo">
+        </div>
+        <!-- Navigation links here -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="vertical"></li>
+
+                <div class="dropdown">
+                    <button class="dropdown-button">Tutorials</button>
+                    <div class="dropdown-content">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropdown-button">html</button>
+                    <div class="dropdown-content">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropdown-button">Css</button>
+                    <div class="dropdown-content">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropdown-button">Python</button>
+                    <div class="dropdown-content">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
+
+
+            </ul>
+
+
+
+
+
+            <!-- First Dropdown -->
+            <div class="dropdown_click">
+                <button class="dropdown-button_click" onclick="toggleDropdown(1)">Downloads</button>
+                <div class="dropdown-content_click" id="myDropdown1">
+                    <a class="dropdown-item_click" href="#">Link 1</a>
+                    <a class="dropdown-item_click" href="#">Link 2</a>
+                    <a class="dropdown-item_click" href="#">Link 3</a>
+                </div>
+            </div>
+
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                Log in
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Log in</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" placeholder="Enter email">
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                        anyone else.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1"
+                                        placeholder="Password">
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+
+
+
+    </header>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-item"><a href="#">Home</a></div>
+        <div class="breadcrumb-item">&gt;</div>
+        <div class="breadcrumb-item"><a href="#">Category</a></div>
+        <div class="breadcrumb-item">&gt;</div>
+        <div class="breadcrumb-item">Current Page</div>
+    </div>
+
+
+    <section id="search">
+        <h2>Search Our Website</h2>
+        <form class="search-form">
+            <input type="text" placeholder="Search..." class="search-input">
+            <button type="submit" class="search-button">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </section>
+
+
+<section class="resister">
+  <div class="resister_new_account">
+    <h1>Create new account</h1>
+
+    <div class="social-login">
+      <button>Login with Google</button>
+      <button>Login with GitHub</button>
+    </div>
+    <div class="input-container">
+      <input type="text" placeholder="Username" required>
+    </div>
+
+    <div class="input-container">
+      <input type="email" placeholder="Email" required>
+    </div>
+
+    <div class="input-container">
+      <input type="password" placeholder="Password" required>
+    </div>
+
+    <div class="checkbox-container">
+        <label class="checkbox-label">
+          <input type="checkbox" id="robotCheck" required>
+          <span class="custom-checkbox"></span>
+          I'm not a robot
+        </label>
+      </div>
+    <button type="submit" class="signup-button">Create new account</button>
+
+    <div class="login-link">
+      <p>Already have an account? <a href="#">Log in</a></p>
+    </div>
+  </div>
+</section>
+
+
+
+    <div class="pricing">
+        <!-- Pricing Option 1 -->
+        <div class="pricing-option">
+            <h2>Standard Plan</h2>
+            <p>$19.99/month</p>
+            <p>Basic features</p>
+        </div>
+
+        <!-- Highlighted Pricing Option -->
+        <div class="pricing-option highlighted">
+            <h2>Pro Plan</h2>
+            <p>$39.99/month</p>
+            <p>Advanced features</p>
+        </div>
+
+        <!-- Pricing Option 3 -->
+        <div class="pricing-option">
+            <h2>Premium Plan</h2>
+            <p>$59.99/month</p>
+            <p>Premium features</p>
+        </div>
+    </div>
+
+
+
+    <section class="mid_hero">
+        <h1>Welcome to Your Website</h1>
+        <p>Your tagline goes here.</p>
+        <a href="#contact" class="btn_contact_submit">Contact Us</a>
+    </section>
+
+
+    <style>
+    .portrait_image_section {
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0; /* Set your desired background color */
+    }
+    
+    .portrait-container {
+        position: relative;
+        background-color: white;
+    }
+    
+    .portrait-image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    .transparent-section {
+        position: absolute;
+        top: 20%; /* Adjust the top position as needed */
+        left: 20%; /* Adjust the left position as needed */
+        width: 60%; /* Adjust the width as needed */
+        height: 60%; /* Adjust the height as needed */
+        /* Adjust the background color and transparency */
+    }
+</style>    
+
+
+<section class="portrait_image_section">
+   
+    <div class="portrait-container">
+        <img src="/templates/pexels-olia-danilevich-6349569.jpg" alt="Portrait Image" class="portrait-image">
+        <div class="transparent-section"></div>
+    </div>
+</section>
+
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="..." class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="..." class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card bg-dark text-white">
+    <img src="/templates/pexels-angela-roma-7319097.jpg" class="card-img" alt="...">
+    <div class="card-img-overlay">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text">Last updated 3 mins ago</p>
+    </div>
+  </div>
+
+
+  <div class="card-group">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+
+
+    <style>
+        .section_for_image {
+          font-family: Arial, sans-serif;
+          background-color: #f1f1f1;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        
+        }
+    
+        .container_for_image {
+          max-width: 800px;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+          background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha (fourth) value for transparency */
+        }
+    
+        .div-image-section {
+            background: url(/templates/pexels-dan-cristian-pădureț-1476321.jpg)no-repeat center center ;
+            background-size: cover;
+            background-color: black; /* Replace 'your-image.jpg' with the image file path */
+          background-size: cover;
+          background-position: center;
+          height: 100vh; /* Set the desired height for your image section */
+          border-radius: 10px 10px 0 0;
+        }
+    
+        h1 {
+          text-align: center;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 32px;
+          color: #333;
+        }
+    
+        p {
+          font-family: "Times New Roman", Times, serif;
+          font-size: 18px;
+          color: #555;
+          margin: 20px 0;
+          line-height: 1.6;
+        }
+      </style>
+  <section class="section_for_image">
+      <div class="container_for_image">
+        <div class="div-image-section"></div>
+        <h1>About Us</h1>
+    
+        <p>Welcome to our educational engineering community! We're a group of engineering students who share a passion for learning, collaboration, and having fun while we pursue our studies.</p>
+    
+        <!-- Rest of your content here -->
+      </div>
+    </section>
+
+
+    <section id="about">
+        <h2>Write Something</h2>
+        <p>Dekho Chacha We are like Chintu Candy Situation - Ekadam asan bhasa me hum apki marenge nahi , Esme tera hi phayda hai Bavadi puchh.
+            Welcome to our educational engineering community! We're a group of engineering students who share a passion for learning, collaboration, and having fun while we pursue our studies.
+
+What We're All About:
+
+Educational Excellence: We're dedicated to fostering a culture of academic excellence. Our platform is designed to help engineering students at all levels to excel in their studies, share knowledge, and collaborate on projects.
+
+Community and Collaboration: We believe in the power of collaboration. Whether it's tackling complex engineering problems or helping each other understand challenging concepts, our community is here to support and uplift one another.
+
+The Fun Side: We're not just about equations and technical jargon. We also believe in the importance of a little humor and light-heartedness. Expect some good-natured fun as we navigate the exciting world of engineering education together.
+
+Our mission is to create an inclusive and engaging environment where educational and engineering pursuits are both rewarding and enjoyable. Join us on this educational journey, where learning is a shared adventure and laughter is just as important as equations.
+
+Ready to join our community? Create an account and start exploring the world of educational engineering with us!
+        </p>
+    </section>
+    
+
+
+  <style>
+    .about_sectione_1{
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .about_sectione_1 {
+      max-width: 800px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 32px;
+      color: #333;
+    }
+
+    p {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 18px;
+      color: #555;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      font-family: "Georgia", serif;
+      font-size: 20px;
+      color: #4285f4;
+      font-weight: bold;
+    }
+  </style>
+
+
+<section class="about_section_1">
+  <div class="about_container_1">
+    <h1>About Us</h1>
+
+    <p>Welcome to our <span class="highlight">educational engineering</span> community! We're a group of engineering students who share a passion for learning, collaboration, and having fun while we pursue our studies.</p>
+
+    <p><span class="highlight">What We're All About:</span></p>
+
+    <p><span class="highlight">Educational Excellence:</span> We're dedicated to fostering a culture of academic excellence. Our platform is designed to help engineering students at all levels to excel in their studies, share knowledge, and collaborate on projects.</p>
+
+    <p><span class="highlight">Community and Collaboration:</span> We believe in the power of collaboration. Whether it's tackling complex engineering problems or helping each other understand challenging concepts, our community is here to support and uplift one another.</p>
+
+    <p><span class="highlight">The Fun Side:</span> We're not just about equations and technical jargon. We also believe in the importance of a little humor and light-heartedness. Expect some good-natured fun as we navigate the exciting world of engineering education together.</p>
+
+    <p>Our mission is to create an inclusive and engaging environment where educational and engineering pursuits are both rewarding and enjoyable. Join us on this educational journey, where learning is a shared adventure and laughter is just as important as equations.</p>
+  </div>
+
+</section>
+
+
+      <style>
+        .our_aim_section {
+          font-family: Arial, sans-serif;   
+          margin: 0;
+          padding: 0;
+          display: flex;
+         
+        }
+    
+        .our_aim_container_left {
+          width: 50%;
+          background: url(/templates/a-college-girl-standing-with-white-background-368787366-removebg-preview.png)no-repeat;
+            background-size: cover;
+            background-color: black;
+          
+          border-radius: 10px;
+          padding: 20px;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        .our_aim_container_right {
+          width: 50%;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          padding: 20px;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+          text-align: center;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 32px;
+          color: #333;
+        }
+    
+        p {
+          font-family: "Times New Roman", Times, serif;
+          font-size: 18px;
+          color: #555;
+          margin: 20px 0;
+          line-height: 1.6;
+        }
+    
+        .highlight {
+          font-family: "Georgia", serif;
+          font-size: 20px;
+          color: #4285f4;
+          font-weight: bold;
+        }
+      </style>
+   <section class="our_aim_section">
+   <div class="our_aim_container_left">
+       
+        <img src="" alt="">
+        <video src=""></video>
+      </div>
+
+      <div class="our_aim_container_right">
+        <h1> Our Aim</h1>
+    
+        <p>We are a passionate group of <span class="highlight">educational engineering</span> enthusiasts. Our mission is to create a collaborative online environment for students, by students. We believe in the power of knowledge sharing, learning from one another, and having some fun along the way.</p>
+    
+        <p>Our journey started with a shared love for engineering and a desire to make the learning process more engaging and enjoyable. With a focus on <span class="highlight">educational excellence</span>, we aim to provide a platform that empowers engineering students to excel in their studies and connect with like-minded individuals.</p>
+    
+        <p>What sets us apart is our commitment to fostering a sense of community and collaboration. We understand that engineering can be challenging, but it's also incredibly rewarding. So, we've created a space where students can connect, ask questions, share their insights, and work together on <span class="highlight">engineering projects</span>.</p>
+    
+        <p>But it's not all about serious study sessions. We also embrace the lighter side of life. You'll find <span class="highlight">humor and camaraderie</span> here. After all, we believe that a good laugh can be just as important as mastering equations and solving complex problems.</p>
+    
+        <p>If you're ready to embark on this educational adventure with us, we invite you to join our community, explore the world of educational engineering, and make the most of your academic journey.</p>
+      </div>
+    </section>
+    
+
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Ye Wali Service</li>
+            <li>Wo wali service</li>
+            <li>Khopcha Service</li>
+        </ul>
+    </section>
+
+    <section id="unique-section">
+        <div class="container">
+            <h2>Discover Our Unique Features</h2>
+            <div class="feature">
+                <div class="feature-image">
+                    <img src="https://source.unsplash.com/900x400/?coding,group work" alt="Feature 1">
+                </div>
+                <div class="feature-details">
+                    <h3> Collaborative Learning Spaces:</h3>
+                    <p>
+                        
+                        
+                       
+                        
+                        Your website offers collaborative learning spaces where engineering students can connect, discuss, and work on projects together. It provides dedicated forums, chat rooms, or virtual study groups where members can share their knowledge, ask questions, and engage in meaningful discussions related to their engineering studies. This feature fosters a sense of community and enables students to support each other in their educational endeavors..</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-image">
+                    <img src="https://source.unsplash.com/900x400/?code,eye" alt="Feature 2">
+                </div>
+                <div class="feature-details">
+                    <h3>Interactive Learning Resources:</h3>
+                    <p>
+
+                        Your website hosts a wealth of interactive learning resources, including tutorials, simulations, and practice problems tailored to engineering subjects. These resources go beyond traditional textbooks, providing hands-on experiences and real-world examples to help students grasp complex engineering concepts. Whether it's interactive quizzes, virtual labs, or engineering challenges, your website empowers students to learn by doing, making the educational journey more engaging and effective.</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <!-- Add more feature items as needed -->
+        </div>
+    </section>
+
+    <section id="mid_image-gallery">
+        <div class="mid_container">
+            <h2>Image Gallery</h2>
+            <div class="mid_image-grid">
+                <div class="mid_image">
+                    <img src="https://source.unsplash.com/450x500/?code,imac" alt="Image 1">
+                </div>
+                <div class="mid_image">
+                    <img src="https://source.unsplash.com/450x500/?code,glass" alt="Image 1">
+                </div>
+                <div class="mid_image">
+                    <img src="https://source.unsplash.com/450x500/?code,ac" alt="Image 1">
+                </div>
+                <div class="mid_image">
+                    <img src="https://source.unsplash.com/450x500/?coding,imac" alt="Image 1">
+                </div>
+                <div class="mid_image">
+                    <img src="https://source.unsplash.com/450x500/?coding,mac" alt="Image 1">
+                </div>
+                <div class="mid_image">
+                    <img src="https://source.unsplash.com/450x500/?web,imac" alt="Image 1">
+                </div>
+                <div class="mid_image">
+                    <img src="https://source.unsplash.com/450x500/?pc,imac" alt="Image 1">
+                </div>
+                <div class="mid_image">
+                    <img src="https://source.unsplash.com/450x500/?hacking,imac" alt="Image 1">
+                </div>
+                <div class="mid_image">
+                    <img src="https://source.unsplash.com/450x500/?code,pc" alt="Image 1">
+                </div>
+                <!-- Add more images as needed -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+      <style>
+        .feature_section {
+          font-family: Arial, sans-serif;
+          background-color: #f1f1f1;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+    
+        .services_container {
+          max-width: 800px;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          padding: 20px;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        h1 {
+          text-align: center;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 32px;
+          color: #333;
+        }
+    
+        p {
+          font-family: "Times New Roman", Times, serif;
+          font-size: 18px;
+          color: #555;
+          margin: 20px 0;
+          line-height: 1.6;
+        }
+    
+        .highlight {
+          font-family: "Georgia", serif;
+          font-size: 20px;
+          color: #4285f4;
+          font-weight: bold;
+        }
+    
+        .italic {
+          font-style: italic;
+        }
+    
+        .blue-text {
+          color: #4285f4;
+        }
+    
+        .service-name {
+          font-family: "Arial", sans-serif;
+          font-size: 24px;
+          font-weight: bold;
+          color: #333;
+        }
+    
+        .coding-service {
+          font-family: "Courier New", Courier, monospace;
+          font-size: 18px;
+          font-weight: bold;
+          color: #333;
+          background-color: #f9f9f9;
+          padding: 10px;
+          border-radius: 5px;
+          margin: 10px 0;
+        }
+      </style>
+<section class="feature_section">
+      <div class="services_container">
+        <h1>Our Services</h1>
+    
+        <p>At <span class="highlight">OurServices Inc.</span>, we are dedicated to providing a wide range of services that empower our community of learners and professionals. Our offerings encompass various domains, each designed to cater to your needs in unique ways.</p>
+    
+        <p>From <span class="italic">coding assistance</span> to <span class="service-name blue-text">Web Development</span>, we offer a plethora of resources and support:</p>
+    
+        <div class="coding-service">
+          <p><span class="service-name">Coding Assistance:</span> Get help with your coding projects, whether you're a beginner or an expert.</p>
+        </div>
+    
+        <p>Looking to break into the world of <span class="italic">Web Development</span>? We offer a comprehensive set of tools and tutorials to help you on your journey.</p>
+    
+        <p>For those seeking <span class="highlight">internships</span> or <span class="highlight">off-campus opportunities</span>, we have a dedicated section where you can find job listings and application tips.</p>
+    
+        <p>Join us and explore a world of possibilities. We're here to support your aspirations and help you reach your goals.</p>
+      </div>
+
+    </section>
+    
+
+    <section id="transparent-section_1">
+        <div class="overlay">
+            <div class="container">
+                <h2>Explore Our Services</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla lacus ut tellus condimentum,
+                    quis eleifend lorem malesuada.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="portrait_image_section">
+   
+        <div class="portrait-container">
+            <img src="/templates/pexels-kris-lucas-3385662.jpg" alt="Portrait Image" class="portrait-image">
+            <div class="transparent-section"></div>
+        </div>
+    </section>
+    
+
+
+    <div class="testimonials">
+        <div class="testimonial">
+            <p>"Great service! I highly recommend it."</p>
+            <p>- John Doe</p>
+        </div>
+        <div class="testimonial">
+            <p>"This website changed my life. Thank you!"</p>
+            <p>- Jane Smith</p>
+        </div>
+    </div>
+
+    <section id="transparent-section_2">
+        <div class="overlay">
+            <div class="container">
+                <h2>Discover Our Unique Features</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et interdum ipsum. Sed vel nulla
+                    eu
+                    arcu laoreet aliquam.</p>
+            </div>
+        </div>
+    </section>
+
+
+      <style>
+        .unique_feature{
+          font-family: Arial, sans-serif;
+          background-color: #f1f1f1;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+    
+        .unique_feature_container {
+          max-width: 70%;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          padding: 20px;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        h1 {
+          text-align: center;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 32px;
+          color: #333;
+        }
+    
+        p {
+          font-family: "Times New Roman", Times, serif;
+          font-size: 18px;
+          color: #555;
+          margin: 20px 0;
+          line-height: 1.6;
+        }
+    
+        .highlight {
+          font-family: "Georgia", serif;
+          font-size: 20px;
+          color: #4285f4;
+          font-weight: bold;
+        }
+    
+        .italic {
+          font-style: italic;
+        }
+    
+        .blue-text {
+          color: #4285f4;
+        }
+    
+        .feature-name {
+          font-family: "Arial", sans-serif;
+          font-size: 24px;
+          font-weight: bold;
+          color: #333;
+        }
+    
+        .feature-description {
+          font-family: "Georgia", serif;
+          font-size: 20px;
+          font-style: italic;
+          color: #777;
+        }
+      </style>
+<section class="unique_feature">
+      <div class="unique_feature_container">
+        <h1>Discover Our Unique Features</h1>
+    
+        <p>At <span class="highlight">OurServices Inc.</span>, we take pride in offering a host of unique features that set us apart. With a keen focus on innovation and user satisfaction, we've tailored our platform to meet your distinct needs.</p>
+    
+        <p>Here's a glimpse of what you can expect from <span class="italic">OurServices Inc.</span>:</p>
+    
+        <div class="feature-description">
+          <p><span class="feature-name">Expert Guidance:</span> Connect with experienced mentors who are dedicated to your success.</p>
+          <p><span class="feature-name">Cutting-Edge Resources:</span> Access the latest tools and technologies to stay ahead in your field.</p>
+          <p><span class="feature-name">Interactive Learning:</span> Engage in immersive learning experiences through virtual labs and simulations.</p>
+          <p><span class="feature-name">24/7 Support:</span> Get assistance and answers to your queries whenever you need them.</p>
+          <p><span class="feature-name">Community Collaboration:</span> Collaborate with like-minded individuals and work on projects that matter.</p>
+        </div>
+    
+        <p>Join us today and unlock a world of opportunities and features that will enhance your educational and professional journey.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Fill out the form below to get in touch with us.</p>
+        <form method="POST" action="/submit">
+            <label for="name"></label>
+            <input type="text" id="name" name="name" placeholder="Name" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <label for="message"></label>
+            <textarea id="message" name="message" rows="4" placeholder="Type Your Message" required></textarea>
+            <button type="submit" id="button" value="Submit" class="btn_contact_submit">Submit</button>
+        </form>
+    </section>
+
+
+    <footer>
+
+        <div class="footer_ft">
+            <div class="footer-logo">Pammu</div>
+            <div class="footer-links">
+                <a href="#">Youtube</a> |
+                <a href="#">Instagram</a> |
+                <a href="#">Facebook</a>
+            </div>
+            <a class="home-button" href="#home">Home</a>
+        </div>
+
+        <p>&copy; 2023 | All Rights Reserve | pammu</p>
+    </footer>
+</body>
+
+</html>
